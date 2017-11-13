@@ -27,7 +27,7 @@ import com.google.android.exoplayer2.RendererCapabilities;
 import com.google.android.exoplayer2.Timeline;
 import com.google.android.exoplayer2.audio.AudioRendererEventListener;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
-import com.google.android.exoplayer2.drm.DefaultDrmSessionManager;
+import com.google.android.exoplayer2.drm.CachingDefaultDrmSessionManager;
 import com.google.android.exoplayer2.metadata.Metadata;
 import com.google.android.exoplayer2.metadata.MetadataRenderer;
 import com.google.android.exoplayer2.metadata.emsg.EventMessage;
@@ -57,7 +57,7 @@ import java.util.Locale;
  */
 /* package */ final class EventLogger implements Player.EventListener, AudioRendererEventListener,
     VideoRendererEventListener, AdaptiveMediaSourceEventListener,
-    ExtractorMediaSource.EventListener, DefaultDrmSessionManager.EventListener,
+    ExtractorMediaSource.EventListener, CachingDefaultDrmSessionManager.EventListener,
     MetadataRenderer.Output {
 
   private static final String TAG = "EventLogger";

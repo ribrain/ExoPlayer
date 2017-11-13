@@ -1,5 +1,32 @@
 [
   {
+    "name": "Alpha11",
+    "samples": [
+      {
+        "name": "be01 VT4 live DRM",
+        "uri": "https://zp5ectgw82.execute-api.eu-west-1.amazonaws.com/prod/billitv/play?channel=VT4&time=0&billiCache=false&ext=.mpd",
+        "drm_scheme": "widevine",
+        "drm_license_url": "https://widevine-dash.ezdrm.com/proxy?pX=00B176&customDATA=LETMEPASS",
+        "extension": "mpd"
+      },
+      {
+        "name": "be01 EEN live DRM",
+        "uri": "https://zp5ectgw82.execute-api.eu-west-1.amazonaws.com/prod/billitv/play?channel=EEN&time=0&billiCache=false&ext=.mpd",
+        "drm_scheme": "widevine",
+        "drm_license_url": "https://widevine-dash.ezdrm.com/proxy?pX=00B176&customDATA=LETMEPASS",
+        "extension": "mpd"
+      },
+      {
+        "name": "be01 VTM live DRM",
+        "uri": "https://zp5ectgw82.execute-api.eu-west-1.amazonaws.com/prod/billitv/play?channel=VTM&time=0&billiCache=false&ext=.mpd",
+        "drm_scheme": "widevine",
+        "drm_license_url": "https://widevine-dash.ezdrm.com/proxy?pX=00B176&customDATA=LETMEPASS",
+        "extension": "mpd"
+      }
+
+
+    ]
+  }, {
     "name": "YouTube DASH",
     "samples": [
       {
