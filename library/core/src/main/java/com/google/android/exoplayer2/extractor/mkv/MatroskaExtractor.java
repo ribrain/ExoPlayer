@@ -1396,6 +1396,7 @@ public final class MatroskaExtractor implements Extractor {
   private boolean maybeSeekForCues(PositionHolder seekPosition, long currentPosition) {
     if (seekForCues) {
       seekPositionAfterBuildingCues = currentPosition;
+      if (seekPosition==null) return false;
       seekPosition.position = cuesContentPosition;
       seekForCues = false;
       return true;

@@ -15,6 +15,8 @@
  */
 package com.google.android.exoplayer2.source.chunk;
 
+import android.util.Log;
+
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.extractor.DefaultExtractorInput;
 import com.google.android.exoplayer2.extractor.Extractor;
@@ -94,6 +96,7 @@ public class ContainerMediaChunk extends BaseMediaChunk {
   @Override
   public final void load() throws IOException, InterruptedException {
     DataSpec loadDataSpec = dataSpec.subrange(bytesLoaded);
+    Log.i("Exoplayer","Loading "+dataSpec.uri.toString());
     try {
       // Create and open the input.
       ExtractorInput input = new DefaultExtractorInput(dataSource,

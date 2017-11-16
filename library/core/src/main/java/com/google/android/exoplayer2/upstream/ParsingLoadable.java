@@ -16,6 +16,8 @@
 package com.google.android.exoplayer2.upstream;
 
 import android.net.Uri;
+import android.util.Log;
+
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.ParserException;
 import com.google.android.exoplayer2.upstream.Loader.Loadable;
@@ -111,6 +113,8 @@ public final class ParsingLoadable<T> implements Loadable {
   public final void load() throws IOException, InterruptedException {
     DataSourceInputStream inputStream = new DataSourceInputStream(dataSource, dataSpec);
     try {
+      Log.i("Exoplayer","Loading "+dataSpec.uri.toString());
+
       inputStream.open();
       result = parser.parse(dataSource.getUri(), inputStream);
     } finally {
