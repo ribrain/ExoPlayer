@@ -15,6 +15,8 @@
  */
 package com.google.android.exoplayer2.source.dash.manifest;
 
+import android.util.Log;
+
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.source.dash.DashSegmentIndex;
 import com.google.android.exoplayer2.util.Util;
@@ -131,13 +133,14 @@ public abstract class SegmentBase {
     public int getSegmentNum(long timeUs, long periodDurationUs) {
       final int firstSegmentNum = getFirstSegmentNum();
       final int segmentCount = getSegmentCount(periodDurationUs);
+      Log.i("ExoPlayer", "getSegmentNum");
       if (segmentCount == 0) {
         return firstSegmentNum;
       }
       if (segmentTimeline == null) {
         // All segments are of equal duration (with the possible exception of the last one).
         long durationUs = (duration * C.MICROS_PER_SECOND) / timescale;
-        int segmentNum = startNumber + (int) (timeUs / durationUs);
+        int segmentNum = (int) (timeUs / durationUs);
         // Ensure we stay within bounds.
         return segmentNum < firstSegmentNum ? firstSegmentNum
             : segmentCount == DashSegmentIndex.INDEX_UNBOUNDED ? segmentNum
@@ -186,7 +189,8 @@ public abstract class SegmentBase {
         unscaledSegmentTime = segmentTimeline.get(sequenceNumber - startNumber).startTime
             - presentationTimeOffset;
       } else {
-        unscaledSegmentTime = (sequenceNumber - startNumber) * duration;
+        //unscaledSegmentTime = (sequenceNumber - startNumber) * duration;
+        unscaledSegmentTime = sequenceNumber * duration;
       }
       return Util.scaleLargeTimestamp(unscaledSegmentTime, C.MICROS_PER_SECOND, timescale);
     }

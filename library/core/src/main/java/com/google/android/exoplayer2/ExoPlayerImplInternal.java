@@ -138,7 +138,7 @@ import java.io.IOException;
    * buffering policy normally prevents buffering too far ahead, but the policy could allow too many
    * small periods to be buffered if the period count were not limited.
    */
-  private static final int MAXIMUM_BUFFER_AHEAD_PERIODS = 100;
+  private static final int MAXIMUM_BUFFER_AHEAD_PERIODS = 3;
 
   /**
    * Offset added to all sample timestamps read by renderers to make them non-negative. This is
