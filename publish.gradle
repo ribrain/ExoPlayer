@@ -37,10 +37,10 @@ def getBintrayRepo() {
 publishing {
     repositories {
         maven {
-            url "s3://ribrainsoft/jenkins"
+            url System.getenv("S3_MAVEN_BUCKET")
             credentials(AwsCredentials) {
-                accessKey "AKIAIU5E47KVNOQNVIIQ"
-                secretKey "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"
+                accessKey System.getenv("S3_ACCESS_KEY")
+                secretKey System.getenv("S3_SECRET_KEY")
             }
         }
     }
