@@ -11,6 +11,9 @@
 // WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 // See the License for the specific language governing permissions and
 // limitations under the License.
+
+apply plugin: 'maven-publish'
+
 if (project.ext.has("exoplayerPublishEnabled")
         && project.ext.exoplayerPublishEnabled) {
     apply plugin: 'bintray-release'
@@ -29,4 +32,16 @@ def getBintrayRepo() {
     boolean publicRepo = hasProperty('publicRepo') &&
         property('publicRepo').toBoolean()
     return publicRepo ? 'exoplayer' : 'exoplayer-test'
+}
+
+publishing {
+    repositories {
+        maven {
+            url "s3://ribrainsoft/jenkins"
+            credentials(AwsCredentials) {
+                accessKey "AKIAIU5E47KVNOQNVIIQ"
+                secretKey "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"
+            }
+        }
+    }
 }
