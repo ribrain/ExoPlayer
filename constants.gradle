@@ -24,7 +24,7 @@ project.ext {
     supportLibraryVersion = '26.0.2'
     dexmakerVersion = '1.2'
     mockitoVersion = '1.9.5'
-    releaseVersion = 'r2.5.4-bhaalu'
+    releaseVersion = 'r2.5.4-a11-' + System.getenv("BUILD_NUMBER")
     modulePrefix = ':'
     if (gradle.ext.has('exoplayerModulePrefix')) {
         modulePrefix += gradle.ext.exoplayerModulePrefix
